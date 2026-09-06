@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0d0d0d;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .text {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ff2a6d;
+            text-shadow: 0 0 10px #ff2a6d, 0 0 20px #ff2a6d, 0 0 40px #ff2a6d;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        .sub-text {
+            font-size: 1.5rem;
+            color: #05d9e8;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+
+        @keyframes glow {
+            from {
+                transform: scale(1);
+                text-shadow: 0 0 10px #ff2a6d, 0 0 20px #ff2a6d;
+            }
+            to {
+                transform: scale(1.05);
+                text-shadow: 0 0 20px #ff2a6d, 0 0 40px #ff2a6d, 0 0 60px #ff2a6d;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- အောက်ပါ စာတန်းနေရာတွင် မိမိရေးချင်သည့် စာအုပ်ကို ပြောင်းရေးနိုင်ပါသည် -->
+        <div class="text">I Love You ❤️</div>
+        <div class="sub-text">You mean the world to me.</div>
+    </div>
+
+</body>
+</html>
