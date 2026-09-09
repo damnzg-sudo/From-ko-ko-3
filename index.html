@@ -6,8 +6,8 @@ HTML
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For You ❤️</title>
     
-    <!-- 1. Google Fonts ချိတ်ဆက်ရန် Link ကို ဒီနေရာ (head ထဲ) မှာ ထည့်ထားပါတယ် -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -35,9 +35,9 @@ HTML
             width: 100%;
         }
 
-        /* 2. Headline Font Style ပြင်ဆင်ချက် */
+        /* Headline Font Style */
         .main-header {
-            font-family: 'Orbitron', sans-serif; /* အသစ်ထည့်ထားသော Font */
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
             letter-spacing: 6px;
             text-transform: uppercase;
@@ -54,24 +54,30 @@ HTML
         }
 
         .hero-img {
-    max-width: 450px;
-    width: 90%;
-    height: auto;
-    display: block;
-    margin: 0 auto 25px auto;
-    border-radius: 15px;
-    box-shadow: 0 0 25px rgba(255, 42, 109, 0.4), 0 0 50px rgba(255, 42, 109, 0.15);
-    border: 2px solid rgba(255, 42, 109, 0.5);
-    object-fit: cover; /* ပုံမရှုံ့သွားစေရန် */
-}
+            max-width: 450px;
+            width: 90%;
+            height: auto;
+            display: block;
+            margin: 0 auto 25px auto;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(255, 42, 109, 0.4), 0 0 50px rgba(255, 42, 109, 0.15);
+            border: 2px solid rgba(255, 42, 109, 0.5);
+            object-fit: cover;
+        }
 
+        /* ပြင်ဆင်ထားသော "Scroll for More" Style */
         .text {
-            font-size: 2.8rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
             font-weight: 900;
-            color: #ff2a6d;
-            text-shadow: 0 0 10px #ff2a6d, 0 0 25px #ff2a6d, 0 0 50px #ff2a6d;
-            animation: glow 1.5s infinite alternate;
-            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff 0%, #ff2a6d 50%, #ff0055 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(255, 42, 109, 0.8));
+            animation: pulseGlow 2s ease-in-out infinite alternate;
+            margin-bottom: 25px;
         }
 
         .section-card {
@@ -110,6 +116,7 @@ HTML
             font-weight: bold;
         }
 
+        /* Button Style */
         .next-btn {
             background: linear-gradient(135deg, #ff0055 0%, #ff5e97 100%);
             color: #ffffff;
@@ -133,16 +140,18 @@ HTML
             background: linear-gradient(135deg, #ff5e97 0%, #ff0055 100%);
             box-shadow: 0 0 25px rgba(255, 0, 85, 0.8);
             transform: translateY(-3px) scale(1.03);
+            color: #ffffff;
         }
 
-        @keyframes glow {
-            from {
-                transform: scale(1);
-                text-shadow: 0 0 10px #ff2a6d, 0 0 20px #ff2a6d;
+        /* Custom Scroll Effect */
+        @keyframes pulseGlow {
+            0% {
+                transform: translateY(0) scale(1);
+                filter: drop-shadow(0 0 10px rgba(255, 42, 109, 0.6));
             }
-            to {
-                transform: scale(1.03);
-                text-shadow: 0 0 25px #ff2a6d, 0 0 45px #ff2a6d;
+            100% {
+                transform: translateY(6px) scale(1.03);
+                filter: drop-shadow(0 0 25px rgba(255, 0, 85, 0.9));
             }
         }
     </style>
@@ -150,12 +159,12 @@ HTML
 <body> 
     <div class="container">
 
-        <!-- 3. Fire Emoji မပါဘဲ ပြင်ထားသော Headline -->
         <div class="main-header">✦ MR. NUDDIE ✦</div>
 
-       <img src="https://cdni.pornpics.com/460/7/301/30087568/30087568_042_6c4c.jpg" class="hero-img" alt="Header Image">
+        <img src="https://cdni.pornpics.com/460/7/301/30087568/30087568_042_6c4c.jpg" class="hero-img" alt="Header Image">
 
-        <div class="text">Ohh Yeah Just Save it´ཀ`</div>
+        <!-- ပြင်ထားသော Scroll for More -->
+        <div class="text">Scroll for More ⬇</div>
 
         <!-- Section 1 -->
         <div class="section-card">
@@ -208,8 +217,6 @@ HTML
 ⣿⣿⣏⣁⢈⢀⣛⠵⠛⠻⣿⣿⣿⣿⣿⣿⣿⣎⠙⣛⠿⠿⠿⠋⠫⠄⠑⠂⠀⠀⠀⢢⣤⣽⡄⡀⠀⠀⠈⠁⠀⠛⠉⠩⢤⠤⠄⣤⣤⡄⢐⣒⠄⣐⡊⢠⣥⣈⣀⣉⠉⢭⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⡇⠨⡂⠿⣿⣿⣿⣤⣽⣿⣿⣿⣃⠭⢅⠄⠑⣒⠀⠀⠀⠠⣾⣿⠄⣈⣉⣉⡁⣊⠕⡦⠀⠀⠀⠀⣀⣲⡄⠒⣴⣭⢟⠶⣊⠡⠾⣫⣾⣿⣿⣿⣿⣉⡛⢷⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣶⣤⣴⣾⣿⣿⣟⣿⣷⣒⠲⠦⣛⣛⢍⢍⡦⠠⠌⢀⠀⠈⠐⠛⠻⠿⠿⠛⠈⣁⠠⢄⣲⡒⢻⣅⡉⣫⠊⠭⢕⣊⡩⢴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣷⣬⣭⣥⣤⣭⣿⣿⣿⣿⣥⣴⣿⣶⣷⣦⣾⣷⣾⣿⣿⣾⣿⣿⣿⣶⣽⣿⣿⣿⣮⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀
-
             </div>
             <div class="instruction-text">
                 <span>✨ Option 1:</span> Click below to open Adult Parody Videos ✨
@@ -221,7 +228,7 @@ HTML
         <div class="section-card">
             <div class="sub-text">
 ⠀⠀⠀⠀
-⠀⣿⡿⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⠀⠀⣿⡿⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⠃⠻⠓⣝⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿
 ⣿⡅⠅⣾⣿⡻⣷⣮⡻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣻⣷⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢋⣴⣾⢘⡻⣿⣿
 ⣿⣷⣦⡙⢇⡳⡘⣿⣿⣶⣝⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⣾⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⡋⠞⣻⠁⢈⡔⠸⣿
@@ -269,7 +276,8 @@ HTML
             <div class="instruction-text">
                 <span>✨ Option 2:</span> Click below to open Porn Pics ✨
             </div>
-            <a href="https://www.pornpics.com/asian/">Next Page 2 ➔</a>
+            <!-- class="next-btn" ထည့်သွင်းထားပါသည် -->
+            <a href="https://www.pornpics.com/asian/" class="next-btn">Next Page 2 ➔</a>
         </div>
 
         <!-- Section 3 -->
@@ -321,12 +329,13 @@ HTML
 ⣷⡌⢾⣽⣳⢿⣹⢯⣳⡖⣦⣄⡀⠁⠠⠐⢀⠂⠡⠌⢒⠨⡐⢂⠰⢈⠒⢤⠁⠂⡅⠐⠈⠀⠀⠀⡳⣜⣳⣞⣷⣻⢧⡻⣜⢣⠞⡰⠑⢌⣰⢞⡝⢦⡙⢄⠃⡈⠠⢈⠄
 ⣿⣿⡘⢷⣯⢿⣽⣻⣷⣿⢶⣭⣿⢿⠶⣶⣄⠀⠁⠌⣀⠃⢌⡐⢂⠡⢊⢆⣏⠰⡀⠀⠈⠄⠀⢘⡳⡽⣎⣟⢶⡹⣖⠳⡌⢇⣊⠵⡺⢏⡳⢊⡜⠡⠒⡈⠄⠠⢁⠢⣪
 ⣿⣿⣿⣎⡻⣟⣾⣳⢯⡾⣿⢿⣿⣩⣾⠛⡄⢂⠀⠐⠀⠌⠂⡔⢡⢊⡵⢪⢇⠣⠐⠀⠈⠄⡐⢨⡟⣵⣻⠾⣭⢳⡍⡏⣴⣿⣶⣤⠁⢍⠒⡡⢄⠡⢂⠡⢈⡆⣡⣾⣿
-⣿⣿⣿⣿⣿⣎⡳⢯⣟⡷⣿⣿⣧⠙⠧⠛⠤⠃⣀⣀⣈⣀⣃⣌⣢⣣⣘⣁⣊⣑⣈⣀⣀⣀⣁⣓⣘⣃⣋⣙⣘⣃⣚⣁⡘⠿⠿⠛⠀⠀⠊⡑⢂⠔⡀⠢⢅⣾⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣎⡳⢯⣟⡷⣿⣿⣧⠙⠧⠛⠤⠃⣀⣀⣈⣀⣃⣌⣢⣣⣘⣁⣊⣑⣈⣀⣀⣀⣁⣓⣘⣃⣋⣙⣘⣃⣚⣁⡘⠿⠿⠛⠀⠀⠊⡑⢂⠔⡀⠢⢅⣾⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
             </div>
             <div class="instruction-text">
                 <span>✨ Option 3:</span> Click below to open PlayBoy Magazines ✨
             </div>
-            <a href="https://comicsvalley.com/comic-author/playboy/">Next Page 3 ➔</a>
+            <!-- class="next-btn" ထည့်သွင်းထားပါသည် -->
+            <a href="https://comicsvalley.com/comic-author/playboy/" class="next-btn">Next Page 3 ➔</a>
         </div>
 
     </div>
