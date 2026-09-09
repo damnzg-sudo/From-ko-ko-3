@@ -815,20 +815,33 @@ body {
     }
 </script>
     <script>
-    // Preloader Auto Fade-out Script
-    window.addEventListener('load', () => {
-        setTimeout(() => {
+        // စာမျက်နှာ ပွင့်ပွင့်ချင်း ၁ စက္ကန့်ပြည့်တာနဲ့ Preloader ကို မဖြစ်မနေ ပိတ်ပေးမည့် Script
+        setTimeout(function() {
             const preloader = document.getElementById('preloader');
             if (preloader) {
                 preloader.classList.add('fade-out');
             }
-        }, 1000); // စက္ကန့် ပြင်ချင်ပါက 1200 (1.2 စက္ကန့်) ကို ပြောင်းပါ
-    });
+        }, 1000); // 1000 = ၁ စက္ကန့်
 
-    // မူလ Age Gate Function
-    function verifyAge(isAdult) {
-        ...
-    }
-</script>
+        // Age Verification Logic
+        function verifyAge(isAdult) {
+            const gateCard = document.getElementById('gateCard');
+            const ageGate = document.getElementById('ageGate');
+
+            if (isAdult) {
+                ageGate.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            } else {
+                gateCard.innerHTML = `
+                    <h2 class="kiddo-title">Welcome Come Kiddo! 🎈✨</h2>
+                    <p style="color: #05d9e8;">ကလေးလေးလည်း ကြည့်လို့ရပါတယ်... ဝင်ကြည့်လိုက်တော့နော်!</p>
+                `;
+                setTimeout(() => {
+                    ageGate.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 1800);
+            }
+        }
+    </script>
 </body>
 </html>
