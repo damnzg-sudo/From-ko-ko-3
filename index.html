@@ -601,17 +601,16 @@
     <!-- Cookie Consent Bar (Sticky Bottom) -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-text">
-            We use cookies and similar technologies that are necessary to run our Website (essential cookies). We also use Analytics, Functionality and Targeting cookies to analyse our Website's traffic, optimize your experience, personalize content, and serve targeted advertisements. Learn more in our <a href="#">Privacy Notice</a>.
+            We use cookies and similar technologies that are necessary to run our Website (essential cookies). We also use Analytics, Functionality, and Targeting cookies to analyse our Website's traffic, optimize your experience, personalize content, and serve relevant ads. By clicking "Accept All", you agree to our cookie policy.
         </div>
         <div class="cookie-buttons">
-            <button class="cookie-btn" onclick="closeCookie()">Accept All Cookies</button>
-            <button class="cookie-btn secondary" onclick="closeCookie()">Accept Only Essential Cookies</button>
-            <button class="cookie-btn secondary" onclick="closeCookie()">Manage My Preferences</button>
+            <button class="cookie-btn" onclick="acceptCookies()">Accept All</button>
+            <button class="cookie-btn secondary" onclick="acceptCookies()">Decline</button>
         </div>
     </div>
 
     <script>
-        function closeCookie() {
+        function acceptCookies() {
             document.getElementById('cookieBanner').style.display = 'none';
         }
     </script>
