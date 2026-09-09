@@ -11,16 +11,17 @@ HTML
 
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #080808;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at center, #1a050f 0%, #050505 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* center အစား flex-start သုံးပေးရပါမည် */
+    background-color: #080808;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-y: auto; /* Scroll ပြန်ဆွဲလို့ရအောင် ပြင်ထားပါသည် */
+    background-image: radial-gradient(circle at center, #1a050f 0%, #050505 100%);
+}
         }
 
         .container {
