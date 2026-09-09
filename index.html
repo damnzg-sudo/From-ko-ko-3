@@ -323,10 +323,25 @@
                 width: 100%;
             }
         }
+        /* Age Gate အတွက် CSS ကုဒ်များကို ဒီနေရာမှာ ထည့်ပါ */
+        .age-gate-overlay { ... }
+        .age-gate-card { ... }
+        .btn-yes { ... }
+        .btn-no { ... }
     </style>
 </head>
 <body> 
-
+    <!-- Age Gate Overlay (ဒီနေရာမှာ ထည့်ပါ) -->
+    <div class="age-gate-overlay" id="ageGate">
+        <div class="age-gate-card" id="gateCard">
+            <h2>🔞 AGE VERIFICATION</h2>
+            <p>ဆက်လက်ဝင်ရောက်ရန် သင့်အသက် ၁၈ နှစ် ပြည့်ပြီးပြီလား?</p>
+            <div class="btn-group">
+                <button class="gate-btn btn-yes" onclick="verifyAge(true)">YES (၁၈ ပြည့်ပြီ)</button>
+                <button class="gate-btn btn-no" onclick="verifyAge(false)">NO (မပြည့်သေး)</button>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <!-- Main Header -->
         <div class="main-header">✦ MR. NUDDIE ✦</div>
@@ -615,4 +630,27 @@
         }
     </script>
 </body>
+</html>
+<!-- သင့်ရဲ့ Cookie Banner သို့မဟုတ် အခြား Content များ -->
+
+        <!-- Age Gate JS Function (ဒီနေရာမှာ ထည့်ပါ) -->
+        <script>
+            function verifyAge(isAdult) {
+                const gateCard = document.getElementById('gateCard');
+                const ageGate = document.getElementById('ageGate');
+
+                if (isAdult) {
+                    ageGate.classList.add('hidden');
+                } else {
+                    gateCard.innerHTML = `
+                        <h2 class="kiddo-title">Welcome Come Kiddo! 🎈✨</h2>
+                        <p style="color: #05d9e8;">ကလေးလေးလည်း ကြည့်လို့ရပါတယ်... ဝင်ကြည့်လိုက်တော့နော်!</p>
+                    `;
+                    setTimeout(() => {
+                        ageGate.classList.add('hidden');
+                    }, 1800);
+                }
+            }
+        </script>
+    </body>
 </html>
