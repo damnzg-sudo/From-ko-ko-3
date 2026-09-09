@@ -6,42 +6,47 @@
     <title>For You ❤️</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 
     <style>
-        body {
-            margin: 0;
-            padding: 20px 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center; /* အလျားလိုက် အလယ်ကပ်ရန် */
-            align-items: flex-start;
-            background-color: #080808;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-y: auto;
-            background-image: radial-gradient(circle at center, #1a050f 0%, #050505 100%);
-            width: 100%;
-        }
-
-        .container {
-            text-align: center; /* စာသားများ အလယ်ကပ်ရန် */
-            position: relative;
-            z-index: 1;
-            padding: 10px 20px 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Element အားလုံး အလယ်ကပ်ရန် */
-            justify-content: center;
-            max-width: 900px;
-            width: 100%;
-            margin: 0 auto; /* Margin auto ဖြင့် အလယ်ပိုသေချာစေရန် */
+        * {
             box-sizing: border-box;
         }
 
-        /* Headline Style - Center Grid */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #080808;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-y: auto;
+            background-image: radial-gradient(circle at center, #1a050f 0%, #050505 100%);
+            width: 100%;
+            color: #ffffff;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 30px 20px 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        /* Headline Style */
         .main-header {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             letter-spacing: 6px;
             text-transform: uppercase;
             color: #ffffff;
@@ -70,10 +75,9 @@
             object-fit: cover;
         }
 
-        /* Scroll for More Style - Center Alignment */
+        /* Scroll for More Style */
         .text {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 900;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -94,10 +98,9 @@
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 35px;
-            box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Card အတွင်းရှိ Item များကို အလယ်ပို့ပေးရန် */
+            align-items: center;
             justify-content: center;
         }
 
@@ -129,7 +132,6 @@
             font-weight: bold;
         }
 
-        /* Button Style - Center Placement */
         .next-btn {
             background: linear-gradient(135deg, #ff0055 0%, #ff5e97 100%);
             color: #ffffff;
@@ -148,7 +150,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             cursor: pointer;
-            margin: 0 auto; /* Button ကို အလယ်ပို့ပေးရန် */
+            margin: 0 auto;
         }
 
         .next-btn:hover {
@@ -168,15 +170,171 @@
                 filter: drop-shadow(0 0 25px rgba(255, 0, 85, 0.9));
             }
         }
+
+        /* --- Footer Section (International Adult Website Style) --- */
+        .site-footer {
+            width: 100%;
+            background-color: #000000;
+            border-top: 1px solid #1a1a1a;
+            padding: 40px 20px 100px 20px; /* Cookie bar အတွက် bottom padding ချန်ထားပါသည် */
+            font-size: 0.75rem;
+            color: #888888;
+            text-align: center;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px 25px;
+            margin-bottom: 25px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: #ff0055;
+        }
+
+        .legal-notice {
+            max-width: 850px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+            color: #aaaaaa;
+        }
+
+        .legal-notice a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .legal-notice a:hover {
+            color: #ff0055;
+        }
+
+        .badges-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .badge-box {
+            border: 1px solid #333;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #fff;
+            background: #111;
+            display: inline-block;
+        }
+
+        .rta-badge {
+            border-color: #0088cc;
+            color: #0088cc;
+        }
+
+        /* --- Cookie Banner (Bottom Sticky Bar) --- */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #121212;
+            border-top: 1px solid #282828;
+            padding: 15px 20px;
+            z-index: 999;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.8);
+        }
+
+        .cookie-text {
+            font-size: 0.75rem;
+            color: #cccccc;
+            max-width: 650px;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .cookie-text a {
+            color: #ff0055;
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.7rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        .cookie-btn:hover {
+            background-color: #dddddd;
+        }
+
+        .cookie-btn.secondary {
+            background-color: #222222;
+            color: #ffffff;
+            border: 1px solid #444444;
+        }
+
+        .cookie-btn.secondary:hover {
+            background-color: #333333;
+        }
+
+        @media (max-width: 768px) {
+            .cookie-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cookie-text {
+                text-align: center;
+            }
+            .cookie-buttons {
+                justify-content: center;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body> 
-    <div class="container">
 
+    <div class="container">
+        <!-- Main Header -->
         <div class="main-header">✦ MR. NUDDIE ✦</div>
 
+        <!-- Hero Image -->
         <img src="https://cdni.pornpics.com/460/7/301/30087568/30087568_042_6c4c.jpg" class="hero-img" alt="Header Image">
 
+        <!-- Scroll Title -->
         <div class="text">Scroll for More ⬇</div>
 
         <!-- Section 1 -->
@@ -230,12 +388,12 @@
 ⣿⣿⣏⣁⢈⢀⣛⠵⠛⠻⣿⣿⣿⣿⣿⣿⣿⣎⠙⣛⠿⠿⠿⠋⠫⠄⠑⠂⠀⠀⠀⢢⣤⣽⡄⡀⠀⠀⠈⠁⠀⠛⠉⠩⢤⠤⠄⣤⣤⡄⢐⣒⠄⣐⡊⢠⣥⣈⣀⣉⠉⢭⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⡇⠨⡂⠿⣿⣿⣿⣤⣽⣿⣿⣿⣃⠭⢅⠄⠑⣒⠀⠀⠀⠠⣾⣿⠄⣈⣉⣉⡁⣊⠕⡦⠀⠀⠀⠀⣀⣲⡄⠒⣴⣭⢟⠶⣊⠡⠾⣫⣾⣿⣿⣿⣿⣉⡛⢷⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣶⣤⣴⣾⣿⣿⣟⣿⣷⣒⠲⠦⣛⣛⢍⢍⡦⠠⠌⢀⠀⠈⠐⠛⠻⠿⠿⠛⠈⣁⠠⢄⣲⡒⢻⣅⡉⣫⠊⠭⢕⣊⡩⢴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣷⣬⣭⣥⣤⣭⣿⣿⣿⣿⣥⣴⣿⣶⣷⣦⣾⣷⣾⣿⣿⣾⣿⣿⣿⣶⣽⣿⣿⣿⣮⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣷⣬⣭⣥⣤⣭⣿⣿⣿⣿⣥⣴⣿⣶⣷⣦⣾⣷⣾⣿⣿⣾⣿⣿⣿⣶⣽⣿⣿⣿⣮⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀
             </div>
             <div class="instruction-text">
                 <span>✨ Option 1:</span> Click below to open Adult Parody Videos ✨
             </div>
-            <a href="https://m.film-adult.com/en/movies/">Next Page 1 ➔</a>
+            <a href="https://m.film-adult.com/en/index.php?do=search" class="next-btn" target="_blank">Next Page 1 ➔</a>
         </div>
 
         <!-- Section 2 -->
@@ -290,7 +448,7 @@
             <div class="instruction-text">
                 <span>✨ Option 2:</span> Click below to open Porn Pics ✨
             </div>
-            <a href="https://www.pornpics.com/asian/" class="next-btn">Next Page 2 ➔</a>
+            <a href="https://www.pornpics.com/asian/" class="next-btn" target="_blank">Next Page 2 ➔</a>
         </div>
 
         <!-- Section 3 -->
@@ -342,14 +500,62 @@
 ⣷⡌⢾⣽⣳⢿⣹⢯⣳⡖⣦⣄⡀⠁⠠⠐⢀⠂⠡⠌⢒⠨⡐⢂⠰⢈⠒⢤⠁⠂⡅⠐⠈⠀⠀⠀⡳⣜⣳⣞⣷⣻⢧⡻⣜⢣⠞⡰⠑⢌⣰⢞⡝⢦⡙⢄⠃⡈⠠⢈⠄
 ⣿⣿⡘⢷⣯⢿⣽⣻⣷⣿⢶⣭⣿⢿⠶⣶⣄⠀⠁⠌⣀⠃⢌⡐⢂⠡⢊⢆⣏⠰⡀⠀⠈⠄⠀⢘⡳⡽⣎⣟⢶⡹⣖⠳⡌⢇⣊⠵⡺⢏⡳⢊⡜⠡⠒⡈⠄⠠⢁⠢⣪
 ⣿⣿⣿⣎⡻⣟⣾⣳⢯⡾⣿⢿⣿⣩⣾⠛⡄⢂⠀⠐⠀⠌⠂⡔⢡⢊⡵⢪⢇⠣⠐⠀⠈⠄⡐⢨⡟⣵⣻⠾⣭⢳⡍⡏⣴⣿⣶⣤⠁⢍⠒⡡⢄⠡⢂⠡⢈⡆⣡⣾⣿
-⣿⣿⣿⣿⣿⣎⡳⢯⣟⡷⣿⣿⣧⠙⠧⠛⠤⠃⣀⣀⣈⣀⣃⣌⣢⣣⣘⣁⣊⣑⣈⣀⣀⣀⣁⣓⣘⣃⣋⣙⣘⣃⣚⣁⡘⠿⠿⠛⠀⠀⠊⡑⢂⠔⡀⠢⢅⣾⣿⣿⣿⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣎⡳⢯⣟⡷⣿⣿⣧⠙⠧⠛⠤⠃⣀⣀⣈⣀⣃⣌⣢⣣⣘⣁⣊⣑⣈⣀⣀⣀⣁⣓⣘⣃⣋⣙⣘⣃⣚⣁⡘⠿⠿⠛⠀⠀⠊⡑⢂⠔⡀⠢⢅⣾⣿⣿⣿⠀⠀⠀⠀⠀⠀
             </div>
             <div class="instruction-text">
                 <span>✨ Option 3:</span> Click below to open PlayBoy Magazines ✨
             </div>
-            <a href="https://comicsvalley.com/comic-author/playboy/" class="next-btn">Next Page 3 ➔</a>
+            <a href="https://comicsvalley.com/comic-author/playboy/" class="next-btn" target="_blank">Next Page 3 ➔</a>
+        </div>
+    </div>
+
+    <!-- International Footer -->
+    <footer class="site-footer">
+        <div class="footer-nav">
+            <a href="#">Affiliate</a>
+            <a href="#">Privacy Notice</a>
+            <a href="#">Support</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Directory</a>
+            <a href="#">Pages</a>
+            <a href="#">About</a>
+            <a href="#">Press</a>
+            <a href="#">Cookie Preferences</a>
+            <a href="#">Content Removal</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Anti-Trafficking Statement</a>
         </div>
 
+        <div class="legal-notice">
+            <p>© 2026 Aylo Premium Ltd. All Rights Reserved.</p>
+            <p style="font-size: 0.7rem; color: #777;">Trademarks owned by Licensing IP International S.à.r.l used under license by Aylo Premium Ltd.</p>
+            <p style="font-size: 0.68rem; color: #666; margin-top: 10px;">
+                All models appearing on this website are 18 years or older. Click <a href="#">here</a> for records required pursuant to 18 U.S.C. 2257 Record Keeping Requirements Compliance Statement. By entering this site you swear that you are of legal age in your area to view adult material and that you wish to view such material. Please visit our Authorized Payment Processors.
+            </p>
+        </div>
+
+        <div class="badges-container">
+            <div class="badge-box">PROBiller</div>
+            <div class="badge-box rta-badge">RTA (RESTRICTED TO ADULTS)</div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Bar (Sticky Bottom) -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-text">
+            We use cookies and similar technologies that are necessary to run our Website (essential cookies). We also use Analytics, Functionality and Targeting cookies to analyse our Website's traffic, optimize your experience, personalize content, and serve targeted advertisements. Learn more in our <a href="#">Privacy Notice</a>.
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn" onclick="closeCookie()">Accept All Cookies</button>
+            <button class="cookie-btn secondary" onclick="closeCookie()">Accept Only Essential Cookies</button>
+            <button class="cookie-btn secondary" onclick="closeCookie()">Manage My Preferences</button>
+        </div>
     </div>
+
+    <script>
+        function closeCookie() {
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
