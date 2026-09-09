@@ -9,164 +9,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 
     <style>
-        /* Preloader Overlay */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #08080c;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 999999; /* Age Gate ထက် ပိုမြင့်သော Layer တွင် ထားမည် */
-    transition: opacity 0.6s ease, visibility 0.6s ease;
-}
+        /* 1. Preloader Overlay Style */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #08080c;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999; /* Age Gate ထက် ပိုမြင့်သော Layer တွင် ထားမည် */
+            transition: opacity 0.5s ease;
+        }
 
-/* Spinner & Text Design */
-.cyber-spinner {
-    width: 65px;
-    height: 65px;
-    border: 4px solid rgba(5, 217, 232, 0.1);
-    border-top: 4px solid #05d9e8;
-    border-right: 4px solid #ff2a6d;
-    border-radius: 50%;
-    animation: spin 0.9s linear infinite;
-    box-shadow: 0 0 20px rgba(5, 217, 232, 0.5), 0 0 30px rgba(255, 42, 109, 0.3);
-}
+        .cyber-spinner {
+            width: 65px;
+            height: 65px;
+            border: 4px solid rgba(5, 217, 232, 0.1);
+            border-top: 4px solid #05d9e8;
+            border-right: 4px solid #ff2a6d;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+            box-shadow: 0 0 20px rgba(5, 217, 232, 0.5), 0 0 30px rgba(255, 42, 109, 0.3);
+        }
 
-.loader-text {
-    margin-top: 25px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    color: #05d9e8;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(5, 217, 232, 0.8);
-    animation: pulse 1.2s infinite alternate;
-}
+        .loader-text {
+            margin-top: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #05d9e8;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(5, 217, 232, 0.8);
+            animation: pulse 1.2s infinite alternate;
+        }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-@keyframes pulse {
-    0% { opacity: 0.3; }
-    100% { opacity: 1; }
-}
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
 
-.preloader.fade-out {
-    opacity: 0;
-    visibility: hidden;
-}
-        /* စစချင်း ဝင်ချိန်တွင် Scroll လုပ်၍မရအောင် ပိတ်ထားမည် */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0f0f12;
-    color: #ffffff;
-    overflow: hidden; 
-}
-
-/* Fullscreen Overlay - အနောက်မှ Content များကို အပြည့်အဝ ဝါးစေမည် */
-.age-gate-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(10, 10, 15, 0.85);
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
-}
-
-.age-gate-card {
-    background: #181820;
-    border: 1px solid #2a2a38;
-    border-radius: 20px;
-    padding: 40px;
-    max-width: 400px;
-    width: 85%;
-    text-align: center;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 42, 109, 0.25);
-    animation: popIn 0.3s ease-out;
-}
-
-@keyframes popIn {
-    from { transform: scale(0.85); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.age-gate-card h2 {
-    font-size: 24px;
-    margin-bottom: 12px;
-    color: #ff2a6d;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
-}
-
-.age-gate-card p {
-    color: #a0a0b0;
-    font-size: 14px;
-    margin-bottom: 25px;
-    line-height: 1.5;
-}
-
-.btn-group {
-    display: flex;
-    gap: 12px;
-}
-
-.gate-btn {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-yes {
-    background: linear-gradient(135deg, #ff2a6d, #9b00e8);
-    color: #fff;
-    box-shadow: 0 4px 15px rgba(255, 42, 109, 0.4);
-}
-
-.btn-yes:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 42, 109, 0.7);
-}
-
-.btn-no {
-    background: #252533;
-    color: #a0a0b0;
-    border: 1px solid #3b3b50;
-}
-
-.btn-no:hover {
-    background: #323246;
-    color: #fff;
-    transform: translateY(-2px);
-}
-
-.age-gate-overlay.hidden {
-    display: none;
-}
-
-.kiddo-title {
-    color: #05d9e8 !important;
-    font-size: 26px !important;
-    text-shadow: 0 0 15px rgba(5, 217, 232, 0.6) !important;
-}
+        /* 2. Global & Body Style */
         * {
             box-sizing: border-box;
         }
@@ -180,12 +71,106 @@ body {
             align-items: center;
             background-color: #080808;
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-y: auto;
+            overflow: hidden; /* စစချင်း ဝင်ချိန်တွင် Age Gate အတွက် Scroll ပိတ်ထားမည် */
             background-image: radial-gradient(circle at center, #1a050f 0%, #050505 100%);
             width: 100%;
             color: #ffffff;
         }
 
+        /* 3. Age Gate Overlay Style */
+        .age-gate-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(10, 10, 15, 0.85);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+        }
+
+        .age-gate-card {
+            background: #181820;
+            border: 1px solid #2a2a38;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 400px;
+            width: 85%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 42, 109, 0.25);
+            animation: popIn 0.3s ease-out;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .age-gate-card h2 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #ff2a6d;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
+        }
+
+        .age-gate-card p {
+            color: #a0a0b0;
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .gate-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #ff2a6d, #9b00e8);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(255, 42, 109, 0.4);
+        }
+
+        .btn-yes:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 42, 109, 0.7);
+        }
+
+        .btn-no {
+            background: #252533;
+            color: #a0a0b0;
+            border: 1px solid #3b3b50;
+        }
+
+        .btn-no:hover {
+            background: #323246;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .kiddo-title {
+            color: #05d9e8 !important;
+            font-size: 26px !important;
+            text-shadow: 0 0 15px rgba(5, 217, 232, 0.6) !important;
+        }
+
+        /* 4. Website Main Container Style */
         .container {
             text-align: center;
             position: relative;
@@ -201,7 +186,6 @@ body {
             flex: 1;
         }
 
-        /* Headline Style */
         .main-header {
             font-family: 'Orbitron', sans-serif;
             font-size: 2rem;
@@ -233,7 +217,6 @@ body {
             object-fit: cover;
         }
 
-        /* Scroll for More Style */
         .text {
             font-size: 2rem;
             font-weight: 900;
@@ -329,12 +312,12 @@ body {
             }
         }
 
-        /* --- Footer Section (International Adult Website Style) --- */
+        /* 5. Footer & Cookie Banner Style */
         .site-footer {
             width: 100%;
             background-color: #000000;
             border-top: 1px solid #1a1a1a;
-            padding: 40px 20px 100px 20px; /* Cookie bar အတွက် bottom padding ချန်ထားပါသည် */
+            padding: 40px 20px 100px 20px;
             font-size: 0.75rem;
             color: #888888;
             text-align: center;
@@ -404,7 +387,6 @@ body {
             color: #0088cc;
         }
 
-        /* --- Cookie Banner (Bottom Sticky Bar) --- */
         .cookie-banner {
             position: fixed;
             bottom: 0;
@@ -484,36 +466,31 @@ body {
     </style>
 </head>
 <body> 
-    <!-- Preloader (အပေါ်ဆုံးတွင် ထားပါ) -->
+
+    <!-- 1. Preloader Overlay -->
     <div class="preloader" id="preloader">
         <div class="cyber-spinner"></div>
         <div class="loader-text">SYSTEM INITIALIZING...</div>
     </div>
 
-    <!-- Age Verification Box (Preloader အောက်တွင် ရှိမည်) -->
+    <!-- 2. Age Verification Box -->
     <div class="age-gate-overlay" id="ageGate">
-        ...
-    </div>
-    <!-- Age Verification Box -->
-<div class="age-gate-overlay" id="ageGate">
-    <div class="age-gate-card" id="gateCard">
-        <h2>🔞 AGE VERIFICATION</h2>
-        <p>ဆက်လက်ဝင်ရောက်ရန် သင့်အသက် ၁၈ နှစ် ပြည့်ပြီးပြီလား?</p>
-        <div class="btn-group">
-            <button class="gate-btn btn-yes" onclick="verifyAge(true)">YES (၁၈ ပြည့်ပြီ)</button>
-            <button class="gate-btn btn-no" onclick="verifyAge(false)">NO (မပြည့်သေး)</button>
+        <div class="age-gate-card" id="gateCard">
+            <h2>🔞 AGE VERIFICATION</h2>
+            <p>ဆက်လက်ဝင်ရောက်ရန် သင့်အသက် ၁၈ နှစ် ပြည့်ပြီးပြီလား?</p>
+            <div class="btn-group">
+                <button class="gate-btn btn-yes" onclick="verifyAge(true)">YES (၁၈ ပြည့်ပြီ)</button>
+                <button class="gate-btn btn-no" onclick="verifyAge(false)">NO (မပြည့်သေး)</button>
+            </div>
         </div>
     </div>
-</div>
-    </div>
+
+    <!-- 3. Website Main Container -->
     <div class="container">
-        <!-- Main Header -->
         <div class="main-header">✦ MR. NUDDIE ✦</div>
 
-        <!-- Hero Image -->
         <img src="https://cdni.pornpics.com/460/7/301/30087568/30087568_042_6c4c.jpg" class="hero-img" alt="Header Image">
 
-        <!-- Scroll Title -->
         <div class="text">Scroll for More ⬇</div>
 
         <!-- Section 1 -->
@@ -578,51 +555,8 @@ body {
         <!-- Section 2 -->
         <div class="section-card">
             <div class="sub-text">
-⠀⠀⠀⠀
 ⠀⣿⡿⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⠃⠻⠓⣝⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿
-⣿⡅⠅⣾⣿⡻⣷⣮⡻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣻⣷⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢋⣴⣾⢘⡻⣿⣿
-⣿⣷⣦⡙⢇⡳⡘⣿⣿⣶⣝⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⣾⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⡋⠞⣻⠁⢈⡔⠸⣿
-⣿⣿⣿⣿⣶⣥⡙⢸⣿⣿⣿⣗⢭⡻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡛⠛⠿⠈⠛⠿⣿⣿⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣡⣾⣿⠿⣓⡫⡀⠘⡀⣿
-⣿⣿⣿⣿⣿⣿⣷⢰⣿⣍⣿⣿⡎⢷⣂⠹⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⡧⠉⠓⠀⠀⠀⠀⠀⠈⠈⠛⠁⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⣴⣿⣿⡏⣲⣿⡷⣓⢐⢀⠟
-⣿⣿⣿⣿⣿⣿⣿⡸⣿⣯⣼⡿⢿⢾⣿⣿⣦⡹⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣍⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣸⡿⢟⡹⣴⣿⣿⡓⡡⢂⣌⣌
-⣿⣿⣿⣿⣿⣿⣿⣷⣝⣛⣃⣭⣾⣀⠙⣿⣿⣿⣶⣝⡻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⣛⣛⣻⣹⣯⣽⣭⣾⣵⣾⣶⡷⢃⣾⡿⢏⡼⠜⣿⣳⢔⣵⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡈⢿⣿⣿⢿⣿⣦⣝⠻⢿⣿⣿⣿⠿⡿⠿⢟⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣦⣝⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⣠⣿⣷⣶⡄⠘⢣⠜⣵⣿⣿⣿⣟⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄⠹⣿⣿⣿⣿⣿⣿⣦⣍⠲⣶⣿⣾⡿⣋⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⢀⡙⣿⣿⣿⣿⣿⣿⣿⣿⠿⣡⣾⣿⣿⣿⠯⠌⢜⣵⣻⣽⣯⣽⣮⣝⣾
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡘⢿⣿⣿⣿⣿⣿⣿⣷⣮⣙⢿⡷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣷⡀⠀⠀⠀⠀⣭⣭⣽⣮⣷⣶⡶⢎⣵⠢⣿⣿⣿⡿⢫⡝⣸⣿⣿⣿⣿⣿⣿⣿⣿⡜
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣮⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣷⡀⠀⠀⣶⣿⣿⣿⣿⡿⣛⣵⣾⣿⣆⠻⣿⠛⠗⣊⣵⣿⣿⣿⣿⣿⣿⣿⣿⣿⣓
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣼⡌⠻⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⣀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢈⠻⣧⠀⣶⣿⣿⠿⣋⣵⣿⣿⣷⣿⣿⢟⡱⢤⡞⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢧
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠻⣿⣿⣦⡘⢳⡭⠻⢙⡋⣵⢞⠃⠀⠀⠀⠐⠜⣀⠀⠀⢤⠤⢀⡀⠀⠀⠀⠀⠀⠀⠈⢳⣬⣣⣙⢫⣶⣿⣿⣿⣿⣿⣿⢻⡱⢎⡖⣻⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⡏⢸⢟⡻⡭⢴⡶⣞⡧⠇⣡⠂⠀⠀⠀⠀⣋⣤⡍⡄⠀⠀⠈⠀⠈⢠⠀⠀⠀⠀⠀⠀⡌⣿⢿⣿⣇⢹⣝⣿⣿⢿⡛⣬⢣⢎⡳⡾⢡⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⡇⠣⠒⢓⣮⡖⢣⣟⢃⡑⢦⡽⡀⠀⠀⠀⠀⢀⠀⠂⢀⠰⠄⠐⠀⢆⠰⠀⠀⠀⠀⠀⠘⠼⣨⠳⢮⡻⣄⠻⡹⡜⢦⡝⣲⢋⠾⢙⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡯
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⡟⠐⠶⠶⢆⣱⣿⣿⣷⡾⣝⢮⣝⠳⠜⢁⣠⣤⣀⠀⠀⠊⠥⣊⠄⡈⣕⢢⢎⣁⠰⠀⠀⠀⡠⠤⠀⠄⠛⢦⣝⠣⢳⢤⡍⣃⢚⠁⢭⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡗
-⣿⣿⣿⣿⣿⣿⣿⣿⡻⠛⢿⠛⠻⢿⢅⡲⢆⣴⣿⣿⡿⠟⣩⡔⣯⢞⡌⢡⣶⣿⣿⣿⣿⣆⠀⠀⠐⠫⣷⢀⠀⢈⡘⠌⡀⠄⠀⠴⣡⣞⣴⣿⣷⣄⠙⢷⢧⣘⠹⣮⢏⣏⡷⣾⣬⣝⡻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣿⣶⡁⢷⢈⣱⠟⢋⠡⢥⠲⣝⣣⠟⡜⠂⣴⣿⣿⣿⣿⣿⣿⣿⡱⡀⠀⠠⣐⣉⠙⠡⠖⠁⢃⣋⡀⢾⣿⢣⣿⣿⣿⣿⣶⡈⢪⢽⣳⡝⣞⣆⣻⠱⢮⣛⢿⣦⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠄⣿⢎⡁⠘⠌⠳⠌⠛⠌⠁⠈⣠⣾⣿⣿⣿⣿⣿⣿⡿⣟⣥⣶⣿⣧⣿⣿⡿⣶⣶⣿⣿⣿⣿⣿⢃⣿⣿⣿⣿⣿⣿⣿⣆⠑⢮⡝⣮⢿⣷⣮⣕⢊⠳⣌⢇⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢈⣿⣦⣉⡈⠳⣔⡀⡂⠰⢀⣾⣿⣿⣿⣿⣿⣿⣿⢇⣭⡿⣿⣿⣿⣿⣿⢯⣾⣿⣿⣿⡛⠺⢿⠇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠘⡼⣹⣟⣿⣿⣿⣟⣦⣍⠺⣄⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⢰⡏⣳⡝⢢⡐⣬⡻⡖⣡⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⠿⣾⣿⣿⣿⠿⢸⣿⣿⣿⣿⣶⣴⡏⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠐⠹⣞⣿⣽⣛⡿⣷⣯⢷⡞⡄⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠃⢸⠳⣄⠻⡁⣧⣿⠗⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣌⠿⣿⠟⣛⣭⣵⣮⣧⣿⢿⣿⡿⢯⠟⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡷⠂⡌⠘⣮⢳⡉⣞⡱⢫⠟⣼⢻⡄⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⠷⠀⡀⣸⡛⢬⡓⢄⡟⢋⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⢰⣿⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣁⠸⣆⠄⠋⠹⠐⠌⠉⠚⡔⠋⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣳⢡⣾⣿⣴⡫⢦⣙⢸⢄⣿⣿⢕⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⣼⡿⠟⣹⣿⣿⣿⣿⢻⣿⣿⣿⢃⣿⣿⣻⣳⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠡⣠⣾⣾⣿⣦⢰⣶⣶⣶⣶⣿⣿⣿⣿⣯⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⢧⡇⣾⣿⣿⣿⣿⣷⣬⡜⣼⣿⢻⢬⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⢣⣴⣾⣿⣿⣿⣿⣷⡱⣿⣿⠏⣼⣿⣇⣳⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⣰⣿⣿⣿⡿⠍⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⢈⢧⣿⣿⣿⣿⣿⣿⣿⢰⣿⣿⣾⣿⣿⣿⣿⣿⡿⣿⣿⣿⣿⣏⠃⢛⣛⣟⡿⢿⣿⣿⣿⣿⣔⢊⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢱⣿⣿⣿⣿⣏⢃⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣯⣬⢜⢻⣿⣿⣿⣿⣿⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⢿⣿⣿⣿⠃⣼⣿⣿⣿⣷⣾⣿⣿⣿⣿⠃⣾⣿⣿⣿⣿⣳⣿⡿⢿⣿⣿⣿⣿⣿⣿⡏⢼⣿⣿⣿⡟⡔⣸⢞⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⡏⠋⡜⣹⣿⣿⣿⣿⣿⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣳⣻⢯⠃⣼⣟⣽⣿⣿⣿⣿⣿⣿⣿⡏⣼⣿⣿⣿⡿⣱⣿⣿⣇⠲⢯⡻⢿⣿⣿⣿⡇⣾⣿⣿⣟⡸⢠⣿⣚⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿
-⣿⣿⣯⣿⣿⣿⡟⡇⣿⣿⣿⣿⣿⣿⣿⢺⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⢡⠿⠈⡞⣾⣿⣿⣿⣿⣿⣿⡿⣼⢡⣿⣿⡗⢋⣼⣿⣿⣿⣿⣷⣄⢹⣷⣍⡻⡟⣰⣿⣿⡿⠚⣠⣻⣷⣹⣿⣿⢾⣿⢿⡿⢿⡟⣿⢻⣟⡻⣝⢫⠞
-⣿⣷⣄⡹⡿⠿⠁⢧⣿⣿⣿⣿⣿⣿⣿⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠁⢱⣿⢟⡻⢛⢿⣿⣿⣿⡷⠋⣼⠻⣨⡕⢛⣿⣭⢭⣭⣭⣽⣵⣿⣿⡿⣿⣮⣻⣿⢟⠍⣤⣷⣿⣳⡽⣿⣿⣳⣿⣾⣿⣷⣾⣶⣷⣶⣷⡶⣷⣾
-⣏⢻⡿⠸⠐⣶⡦⢸⣿⣿⣿⣿⣿⣿⣿⣷⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⣧⠟⡘⠃⠀⢃⣿⣿⣻⠁⠠⣣⣶⣿⣿⣿⣿⣾⣶⣦⡄⢭⣿⣭⣾⣿⣿⡿⣫⠴⢋⣼⣿⣿⣿⢿⡼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣿⢯⣿
-⠈⣏⠷⣮⡠⠉⢡⡈⣿⣿⣿⣿⣿⣿⣿⣿⢂⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠘⠾⠁⠀⡀⢧⣿⠧⢃⣠⣾⣿⣿⣿⡙⠯⠧⠳⠒⠛⠛⠹⣿⡯⢝⡠⢦⠙⠂⣡⣾⣿⣿⣿⣿⡿⣜⣿⡿⣾⣿⣿⣿⣿⣿⢿⣻⣯⣷⢿⣟⣿
-⣴⣿⡔⡋⠃⡂⠈⠃⣿⣿⣿⣿⣿⣿⣿⣿⢸⡈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⡀⠂⠀⠂⠁⠈⠍⢂⣼⣿⣿⣿⣿⣿⣧⣤⣶⣶⣶⠶⣦⠶⠛⠥⠚⢁⡨⡔⣠⣿⣿⣿⣿⣿⣿⣳⡝⣿⣳⢿⣿⣿⣿⣿⣿⢾⣿⣻⣟⣾⣿⣿
-⣿⣿⣇⡿⡇⠳⡤⣿⣿⢿⡿⣯⡿⡽⣿⡟⣿⣿⡜⢻⣿⣿⣿⣿⣿⣿⣣⡾⣿⢿⠂⠘⠀⠀⢄⢈⣿⣿⣿⣿⣿⣿⣿⣿⠟⠫⠝⠒⠛⡁⠔⡈⠰⣌⢲⠕⣰⣿⣿⣿⣿⣿⣿⣟⣷⡙⣶⢭⣻⣿⣿⣿⣿⣯⣟⣾⣿⣿⣿⣿⣿
-⣿⣿⠷⣏⣿⣇⡻⣟⢿⣿⣿⢿⣿⣿⣇⠀⣿⣿⣿⣶⣙⠿⣿⣿⣿⢿⡿⣻⠭⠚⠀⢠⠈⠀⠂⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣆⣈⡡⠄⢆⡩⢓⡼⠃⠀⣿⣯⣟⣿⣿⣿⣿⣿⢾⡝⣾⢧⣾⣿⣿⣿⣿⡷⣯⣿⣿⣿⣿⣯⢿
-⣿⣿⠹⣿⣿⢧⡘⣯⣷⣾⣭⣟⡾⣝⣻⢇⣿⣿⣿⣿⣿⣷⣦⣴⠉⠎⠲⠡⠒⠌⠀⢀⠢⠀⡀⠸⡿⢿⣿⣿⣿⣿⣿⣿⣿⢿⡿⣻⠝⣜⣢⠕⠋⠀⠀⡈⣟⣶⣿⣾⣿⣿⣿⣿⣯⡟⣽⣻⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⢿
-⣿⢯⢓⢹⣿⢠⡓⣿⣿⣿⣳⡾⣽⣻⣽⢻⣿⣿⣿⣿⣿⣿⡿⢋⡢⢌⠑⣆⠀⠀⠀⠀⠄⠠⠁⣀⠘⠳⢎⢯⡹⢭⠳⣍⢎⡳⡼⡥⠟⠈⠁⠀⡰⢌⡔⢃⢺⣿⣿⣿⣿⣿⣿⣳⢷⡏⣷⣻⢾⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣽⣾
-⢏⡇⢎⣼⡳⣔⡻⣽⠾⣽⢷⡿⣯⢷⣻⢸⣿⣿⣿⣿⠟⣫⣾⣕⡻⢮⡹⣄⠯⢄⢂⠠⠀⠀⠢⢄⡣⠀⠀⢀⣉⢌⠓⡘⣊⢉⠁⡄⢀⡠⢆⡳⣕⢫⠆⢸⠸⣿⣿⣿⣿⣿⣿⣹⢯⡞⡷⢯⣿⣿⣿⣿⣿⣿⣷⣿⣽⡾⣟⣷⢻
-⣾⣾⣾⣶⣷⣶⣿⣾⣿⣾⣷⣾⣷⣿⣷⣾⣿⣿⠟⣡⣾⣿⣿⣿⣿⣿⡿⣜⡃⠂⢤⢋⠆⡀⢳⡌⠞⠀⢄⣯⣜⠎⢧⡳⣜⢮⡹⢶⠭⣻⣭⢳⡝⣎⠇⣾⡇⣿⣿⣿⣿⣿⣿⣾⣷⣷⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠛⣿⣿⡾⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⣩⣾⣿⣿⣿⣿⣿⣿⣿⢿⡹⢦⡀⠀⡁⠂⠀⠀⡉⠂⡄⡾⣿⣿⣿⣿⣶⣾⣶⡿⣟⣿⡻⣬⢳⡜⡬⢇⢸⠇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣫⢨⡞⣰⣇⣿⠿⣽⢻
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⣰⣿⣿⣿⣿⣿⣿⢿⣻⡙⠞⣉⠃⡁⢄⡀⢀⠀⠀⠀⢀⠸⣷⢻⣿⣿⣿⣿⣿⣽⣻⡽⣞⠵⣣⠗⢮⡁⢊⡀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⢇⢸⣥⢟⡮⡝⡿⡱⢯
-⠓⣟⠺⣍⢟⢫⡟⡿⣿⢿⡿⣿⡿⢋⡔⣼⣿⣿⣿⣿⡿⣯⣛⠮⡥⠙⢂⡔⢮⡱⠂⢌⡀⢀⠀⡀⢀⠸⣯⢻⣿⣿⣿⣿⡿⣞⡷⡽⣎⢳⢡⠚⡤⠁⡂⡄⢸⠻⣍⢛⠺⡝⣛⢟⢻⡛⡛⡏⢯⠹⢍⠹⢀⠏⡎⢃⠞⣡⠃⠝⢂
-⠈⠄⠣⠌⡌⢢⠜⡱⢎⢧⡙⠇⣡⢋⣾⣿⣿⣿⣿⡿⣽⡳⡍⢊⢠⡐⢦⡞⣧⡙⢠⡖⡡⢂⠀⠀⢠⠠⣯⢳⢿⣿⣿⣿⣻⡽⣞⣷⣙⢎⠦⡙⢤⠃⣔⡡⡀⠡⢀⠊⡐⢈⠰⢈⠂⡑⢈⠐⡠⠁⠂⠌⡰⠘⡄⢣⠘⠤⡉⢆⠐
             </div>
             <div class="instruction-text">
                 <span>✨ Option 2:</span> Click below to open Porn Pics ✨
@@ -633,120 +567,28 @@ body {
         <!-- Section 3 -->
         <div class="section-card">
             <div class="sub-text">
-⠀⠀⠀⠀
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠑⠀⠈⠀⠊⠝⢻⡿⡿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢡⠁⠀⠀⢠⣶⣞⣷⣳⠶⣄⠀⠀⠀⠊⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣁⢖⡼⠀⠐⣸⣿⣿⣾⣯⣟⡼⣡⠂⠀⠀⠈⢝⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⡱⠔⡏⡼⠀⠀⠀⡌⢈⣿⡿⠟⡀⣀⠡⠀⠀⠀⠀⠀⠀⢮⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢏⠊⢄⣽⠣⡔⡠⠁⠀⠀⠀⣸⣏⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠧⠁⢂⡱⡖⢃⠓⠁⠀⣶⣾⣿⠿⡿⠀⠘⣳⡖⢦⠀⠀⠀⠀⠀⠰⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠘⣥⠃⢡⢸⠁⢠⢰⣿⣿⣿⣴⣦⠀⠀⣷⠙⡆⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢯⢂⠣⢅⡚⡌⣸⠈⡈⠐⣿⣿⠟⠋⠊⠁⠉⡜⠣⠀⠀⠀⠀⠀⠀⡏⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⠦⡄⢀⡞⠰⢰⡇⢆⠃⡇⢻⣷⣶⣁⡒⣀⠀⠱⠀⢀⠀⠀⠀⠀⡘⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠰⣹⢳⡥⢠⠇⠘⢆⠰⠇⢿⣿⣿⢿⡝⠂⠁⡀⠂⠀⠀⠀⠀⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢣⠣⢯⠫⣨⢲⠄⣲⠎⢞⠈⠀⠉⠠⣉⠰⠠⠁⠄⠁⠀⠀⠀⠀⡷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡣⢡⢲⠿⠱⢌⠎⡼⡡⠂⠰⠀⠀⠀⠐⡄⢃⡐⠈⠀⠀⠀⠄⠀⠀⠗⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠑⡴⠋⠀⡹⠰⠸⡰⢱⠋⠀⠀⠀⠀⠀⠀⠘⣄⠢⣀⠁⠀⠈⠀⠀⠀⠑⣙⣛⣛⣛⣟⡿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠌⡜⣠⢆⠀⡁⠆⢰⢹⢩⠀⠀⠀⠀⠀⠀⠀⠈⡔⠣⠴⣁⠆⠀⠀⠀⣀⣩⣶⣿⣿⢾⣾⡽⣯⡔⠊⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠘⠱⢃⡤⡛⠀⠀⠀⢢⠁⡑⢀⠀⠀⠀⠀⠀⠐⢨⣙⠧⠟⣚⣤⣶⠿⡛⣻⣿⣿⣿⣿⣿⣿⣷⢯⠡⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠃⠀⡢⠄⠀⡀⠀⠀⠑⠈⠀⠌⠀⠀⢠⡀⠀⣓⣬⣿⣿⣿⣿⣁⣰⣷⣿⣿⣿⣿⡿⣟⡿⡹⢆⠃⠀⠀⢘⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢄⠊⠌⠑⠀⠀⠠⣱⡆⠀⠂⢸⡈⠀⠀⢣⣟⣷⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣽⡳⣭⠳⡌⢂⠁⠀⠀⠼⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢪⠘⡠⠃⠀⠀⢦⢱⡈⠀⠘⠘⠁⠀⠀⢂⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣛⡞⢲⠙⢎⡱⢈⠄⠂⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠍⢀⣤⠀⠈⠐⠎⡀⠱⠀⠀⠀⠀⠀⡤⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⡷⢭⠘⠀⠀⠊⢄⠃⡐⠈⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠘⢦⣖⠂⠈⠒⡀⠀⢀⠀⠃⠀⠀⡘⣼⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣻⢷⣏⠞⡄⠁⠀⠀⡸⢠⠃⠀⠀⠀⠀⢺⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢒⠆⣀⠌⠁⠁⠆⠀⠐⠀⢀⣴⣙⢦⡛⡼⢿⣿⣿⣿⣿⣿⣿⣻⣽⣻⡜⢧⢂⠄⠀⠀⡱⢃⠌⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠸⣭⠁⠀⡀⢀⡀⠀⢀⣴⣿⡾⣝⢦⡛⣔⢫⣿⣿⣻⣿⣿⣾⣿⣷⣯⡟⣧⢋⠴⠀⠀⠘⡡⠂⠄⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠠⣏⣶⡀⠁⠈⠁⣴⡘⣿⣿⣷⣻⡜⣣⠙⡌⢿⣻⢿⣿⣿⣿⣿⣿⡿⠳⠙⠚⡄⠂⠀⠀⠡⢂⠄⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠐⡹⣖⢯⠠⠠⠁⢐⠃⣹⣯⢷⡳⡝⢦⢉⠐⢸⠯⣿⣿⣿⣿⣿⣿⡧⠟⠀⠁⠀⠁⠀⠀⠀⠡⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠳⣝⢮⣃⠱⣉⢠⢚⡵⣯⣛⠷⣙⠢⠀⠀⣰⣌⢳⡿⣿⡿⣟⣯⢇⡑⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⢨⡝⣮⢓⡆⡁⠏⣞⡹⢱⠩⠚⡀⠄⠀⣰⠟⡾⣆⠙⢧⠻⡝⢎⠞⡐⢀⠂⠈⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠰⣻⣜⢫⡼⢤⠀⢀⠠⠁⠄⠁⠀⠀⡴⣋⠞⣵⢫⢳⡀⠉⠈⠂⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿
-⡻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⢷⣎⣳⣼⢣⠆⠸⣄⡀⠀⠀⣠⢞⡱⣭⠺⣵⢫⡳⣌⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⡿⢫⣞
-⠈⡈⢟⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠨⣟⡞⣧⢟⡧⢌⠀⡔⡙⢶⡘⠴⣋⢞⡴⣛⡼⣣⠳⡌⢆⡁⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⠟⣫⣞⡿⣞
-⠐⠠⢀⠡⠹⡻⣿⣿⣿⣿⣿⣿⣿⣧⢙⣬⢳⡝⣮⡝⠢⠀⣗⡺⢤⠙⡢⢍⡺⣔⢯⡚⢥⠓⣈⠂⠀⠄⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⢟⣥⡿⣿⣽⣻⢽
-⠀⠁⠂⢄⠡⠌⠠⠝⢿⣿⣿⣿⣿⡗⠤⣎⡳⣝⠶⣩⠁⠀⢮⡝⣏⡳⣑⢎⡱⡞⣶⠹⢆⢣⠐⡌⠠⠀⠄⠂⠀⠀⠀⠂⠀⠀⠀⠀⠀⠀⠀⠠⢟⣥⢿⣾⣟⣷⢯⣳⢋
-⠄⠈⠈⢄⠊⡌⢡⠒⠠⢊⠛⢿⣿⡇⡱⢎⠵⣊⠳⠄⠂⢸⢰⡹⢮⠵⣩⢞⡵⣍⠤⠈⢬⡤⣋⠔⡡⠌⡐⠠⠀⠀⠀⢰⡄⠀⠀⠀⠀⠀⣀⣴⣾⣿⡿⣯⢿⡽⣣⢇⡿
-⡌⢡⠀⠂⠌⠰⣁⠎⣑⠢⢌⠡⠝⠁⣜⢩⡒⢅⠃⠄⠀⢎⠶⣩⢳⡝⢮⢯⣽⢮⣄⣀⡴⣛⠬⡒⡁⠆⠠⢁⠀⠀⠀⠈⢷⡄⠀⠀⣠⢶⣿⣿⣿⣿⣿⣻⢏⡞⣱⢮⡽
-⣎⠡⢂⠀⠈⠁⢆⠸⣄⢋⠦⢱⠈⡔⠈⠢⠱⣈⠂⠀⡜⡸⢸⣡⢓⠾⣭⣛⡞⡷⣎⡳⣜⡡⢇⡱⢈⠔⡁⢂⠠⠀⠀⠀⠈⢛⣠⢾⣽⣿⣿⣿⣿⢿⣞⣧⡛⢼⡱⣯⢟
-⣧⢋⠤⠀⠀⠁⠌⠒⡄⣋⢌⢣⠱⣌⡑⢆⠤⢀⠀⠒⣌⢱⢣⡜⣭⣚⢴⡹⣚⠽⣸⠱⢦⡙⢢⡑⡌⢂⠔⡀⢂⠌⠀⣠⣴⣻⣾⣿⣿⣿⣿⣿⣽⣻⢞⢦⡙⢰⡻⡼⢯
-⣿⣏⢮⡡⠀⠀⢈⠐⠰⡈⢜⢢⢃⠖⡸⢌⡚⡤⢣⡐⢈⠳⣮⣜⠶⡭⣎⢷⡹⢮⡕⣫⠖⣍⢣⢒⡡⢊⡔⣌⠒⣠⣾⣷⣿⣿⣿⣿⣿⣿⣻⣞⡷⣹⢎⠦⡑⢨⣷⢻⡭
-⣿⣻⢮⡕⢢⠀⠄⡈⠄⡑⠌⠢⡍⢎⡱⢊⡼⢱⠣⡜⢢⠄⡀⠻⣻⣵⣻⢮⡽⢧⣛⡖⣫⡜⣣⠞⡰⢣⠚⢀⣾⣟⣿⣿⣿⣿⣿⣿⣻⣞⡷⣫⢞⡵⢊⠆⢁⡾⢧⡻⡔
-⣟⡿⣜⡻⢇⡄⠠⠀⠄⠠⠘⢣⠘⣄⢣⠛⣤⢛⡤⡛⡄⢇⡠⠀⠸⢧⣟⣿⣻⢇⣟⡸⢣⡜⢣⡜⣣⠄⢃⣼⣿⢿⣿⡿⣟⣿⣻⢧⡿⣼⢣⡟⡼⢠⠛⡀⣼⡻⢧⢇⡻
-⢾⣽⣳⡝⠦⠘⡀⠈⠄⠡⠘⡀⢊⠔⣈⠳⣄⠓⢦⡙⡜⢂⠦⣁⢂⠘⢿⣜⡧⣟⡬⣓⢧⣚⡱⡜⠆⣩⣞⣿⣽⢿⣻⣽⢿⡽⣯⡻⣝⢮⠳⡜⣡⠃⢂⢰⢧⡹⢍⠦⢁
-⣟⣾⣳⢯⣻⠴⢀⡁⠈⠄⠡⠐⠠⠈⢄⠣⡐⠍⢦⠱⢌⢃⠒⡄⢊⠆⡀⢻⡼⢇⠃⡝⡆⣜⢲⡙⢾⡹⢮⣳⢯⡿⣯⣟⣯⡽⢧⡛⡜⢎⡱⠘⡄⡘⢠⢯⡻⢱⠈⠄⡃
-⡙⢾⣝⡿⣿⡿⣄⡐⠄⠈⠄⡁⠂⠁⢂⠐⡈⠜⡠⢃⠎⡄⢣⠐⡈⢆⠰⡀⡏⠹⡐⢠⠘⢀⠃⡐⢧⡙⢧⣏⣿⡽⣷⣛⡮⣝⢧⡹⡘⢆⠡⠃⣐⢤⡛⣎⠱⠃⠌⠐⠀
-⣷⡌⢾⣽⣳⢿⣹⢯⣳⡖⣦⣄⡀⠁⠠⠐⢀⠂⠡⠌⢒⠨⡐⢂⠰⢈⠒⢤⠁⠂⡅⠐⠈⠀⠀⠀⡳⣜⣳⣞⣷⣻⢧⡻⣜⢣⠞⡰⠑⢌⣰⢞⡝⢦⡙⢄⠃⡈⠠⢈⠄
-⣿⣿⡘⢷⣯⢿⣽⣻⣷⣿⢶⣭⣿⢿⠶⣶⣄⠀⠁⠌⣀⠃⢌⡐⢂⠡⢊⢆⣏⠰⡀⠀⠈⠄⠀⢘⡳⡽⣎⣟⢶⡹⣖⠳⡌⢇⣊⠵⡺⢏⡳⢊⡜⠡⠒⡈⠄⠠⢁⠢⣪
-⣿⣿⣿⣎⡻⣟⣾⣳⢯⡾⣿⢿⣿⣩⣾⠛⡄⢂⠀⠐⠀⠌⠂⡔⢡⢊⡵⢪⢇⠣⠐⠀⠈⠄⡐⢨⡟⣵⣻⠾⣭⢳⡍⡏⣴⣿⣶⣤⠁⢍⠒⡡⢄⠡⢂⠡⢈⡆⣡⣾⣿
-⣿⣿⣿⣿⣿⣎⡳⢯⣟⡷⣿⣿⣧⠙⠧⠛⠤⠃⣀⣀⣈⣀⣃⣌⣢⣣⣘⣁⣊⣑⣈⣀⣀⣀⣁⣓⣘⣃⣋⣙⣘⣃⣚⣁⡘⠿⠿⠛⠀⠀⠊⡑⢂⠔⡀⠢⢅⣾⣿⣿⣿⠀⠀⠀⠀⠀⠀
             </div>
             <div class="instruction-text">
                 <span>✨ Option 3:</span> Click below to open PlayBoy Magazines ✨
             </div>
             <a href="https://comicsvalley.com/comic-author/playboy/" class="next-btn" target="_blank">Next Page 3 ➔</a>
         </div>
-        <!-- Section 4 (Telegram Link) -->
+
+        <!-- Section 4 -->
         <div class="section-card">
             <div class="sub-text">
-⠀⠀⠀⠀
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀⠀⠀⠀⠰⢖⣚⣽⣯⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠛⠁⣢⣠⣴⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠟⠋⠉⠁⠀⠀⢀⣴⣾⣿⣿⣿⣿⣭⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⣤⠀⠀⠀⠀⣀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿⣿⠛⡿⣿⢿⢛⠻⠻⠛⠋
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠊⠀⠀⢸⠉⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠉⠀⡀⠀⠀⠀⠁⠀⠀⠀⠠⠀⠐⠀⠀
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁⠀⠀⠀⡠⡀⠀⣧⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⢈⣀⠄⠀⢀⣀⣀⡠⢄⡀⠀⠀⠀
-⣿⣿⠻⠿⠿⠿⠟⠷⠿⠀⡟⠀⠀⢠⠊⠀⠀⢸⣿⣿⣿⣿⣿⡟⢻⣿⠋⠀⠀⠈⠛⠿⠟⠛⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠀⠀⠀
-⠏⠈⠀⠁⠀⠀⠀⠀⠀⠀⡇⠀⢠⠃⠀⠀⠀⢸⣿⢻⡽⣿⡟⢠⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⡇⠀⠀⠀⠀⣠⠀⠀⠀⡘⠉⢰⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡁⠀⡄⠀⠀⠀⠀⣼⣿⢾⣿⣿⠀⣼⣿⣦⣄⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣯⡉⠁⢀⡞⠁⠀⣠⠊⠀⢀⠃⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⢼⠀⠘⠀⠀⠀⠀⢠⣿⣿⣯⡿⡆⠀⣿⣿⣿⠻⣟⢶⠀⣠⣤⣤⣤⣰⣿⣿⣿⡇⠀⢉⠏⠀⢀⠜⠁⠀⢠⠎⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠇⢠⠃⠀⠀⠀⠀⣾⣿⣿⣿⣿⣧⢸⡿⠀⠁⠁⢠⢰⠘⠉⠿⡿⣟⣿⣿⣿⣿⡇⡠⠃⢀⠔⠁⠀⠀⠐⡜⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⡼⢀⠆⠀⠀⠀⠀⢠⢿⣿⣿⣿⣿⣿⣾⡇⠀⠀⠀⠣⣀⡇⠀⠀⠀⣴⣿⣿⣿⣿⣷⠁⡠⠂⠀⠀⠀⢀⡾⢀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⢰⠀⠎⠀⠀⠀⠀⠀⣼⡇⠹⣿⣿⣿⣿⣿⣧⡀⠑⡀⠬⠭⠀⠀⣠⣾⣿⣿⡿⢋⣿⢃⠎⠀⠀⠀⠀⢀⠞⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⡇⠰⠀⠀⠀⠀⠀⣀⢸⡇⠀⢹⣿⣿⣋⡼⢿⡽⢦⣈⣉⣠⣴⣾⣿⣿⡿⣿⣿⣿⡟⠁⠀⠀⠀⠀⢀⠎⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⢣⡇⠀⠀⠀⣰⣷⣿⢸⠁⠀⠸⢻⠛⢍⡁⠘⡇⠀⠈⠉⡿⠛⢻⣿⣯⢸⣿⠉⢹⠅⠀⠀⠀⠀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⣼⡇⠀⠀⠀⠙⢻⢿⣾⢸⠀⠘⢐⠀⠀⢨⣝⢻⡆⠀⢸⣴⢛⠋⠀⠻⣿⣿⢠⣏⢡⡤⠀⢀⣾⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⢸⣿⣳⡀⠀⠀⠀⠸⣿⣿⠁⡇⢸⢸⠀⠀⠀⠉⠛⠉⠒⠋⠷⠃⠀⠀⠀⠹⣿⣯⣟⣷⣿⣠⣾⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢀⣿⡏⣿⣷⡀⠀⠀⠈⠀⣱⢠⠁⡏⠘⠀⠀⠀⡄⠠⣀⠀⠀⠀⠀⠀⡔⠒⠤⡸⣿⣿⣿⣩⣿⣿⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢸⣿⢠⣿⣿⣿⡄⠀⠀⠀⡇⡌⢰⠗⡄⠀⠀⠀⠘⠢⢄⠑⡄⠀⠀⠘⢀⠄⠒⠁⠘⠻⣯⡻⢿⣸⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⣶⣤⣤⣀⡀⣼⡇⣸⣿⣿⣿⣿⡄⠀⣰⡞⠀⡈⡆⠹⠀⠀⠀⠀⠀⠀⠉⠻⡄⠀⠘⠁⠀⠀⠀⠀⠀⠈⠙⢦⡈⠙⢿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⣿⣿⣿⣿⣿⣿⣧⣿⣿⣿⣿⣿⡗⢀⡟⠀⢰⠁⠇⡇⢣⠀⠀⠀⠀⠀⠀⠀⠈⢢⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢦⡀⠈⠢⡀⠀⠀⠀⠀⠀⠀⠀
-⣭⣝⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣼⠀⠀⡀⠀⠀⠀⠀⢆⠀⠀⠀⠀⠀⠀⠀⠈⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢱⠀⠀⠈⠢⡀⠀⠀⠀⠀⠀
-⠿⢿⡿⡚⠛⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⢰⠀⠀⠀⠀⠀⠈⢂⠀⠀⠀⠀⠀⠀⠀⠈⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢣⠀⠀⠀⠹⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⣇⠀⠀⠀⠀⠀⠀⠈⢂⠀⠀⠀⠀⠀⠀⠀⡇⢦⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⢻⣿⣿⣿⣿
-⣿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣷⢄⡇⠑⢄⡀⠀⠀⠀⠀⢈⢂⡀⠄⠀⠒⠉⢠⠃⠈⢄⠈⠒⠠⢄⣀⠀⠀⠀⠀⠀⠀⠀⠀⡠⣾⣿⣿⣿⣿
-⠀⠀⠀⠀⢠⣾⣿⣿⣿⣿⣿⣿⣿⣿⡆⣇⠀⠀⠀⠀⠀⠀⠀⠀⠈⢦⠀⠀⠀⢠⠞⠀⠀⠈⣷⣆⡀⠀⠀⠀⠀⠀⠀⡹⠈⠀⠉⢠⡿⡿⠿⣿⣿
-⢀⠀⠀⢀⣾⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⣾⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⢶⣀⡴⢓⠖⠒⠀⠀⠘⢟⠻⣤⡀⠀⠀⢠⡴⠃⠀⠀⣠⠞⠚⠓⠒⠺⠇
-⠈⠛⠛⠛⠁⢸⣿⡆⣿⣿⣿⣿⢸⣿⣿⣿⣿⣶⠤⣀⣀⠀⢀⣀⡠⠄⠚⠁⡠⠂⠀⢠⢦⠀⠀⠈⢂⠀⠙⢲⣴⣏⠤⠤⠔⠊⠁⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠘⣿⣇⢻⣿⣿⣿⣾⡿⣿⣿⣿⢹⡆⠀⠀⠀⠀⠀⠀⠀⡀⠔⠀⢀⠔⠁⢸⠀⢰⢂⠀⠣⡀⢸⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⢹⣿⣾⣿⣿⣿⡿⠁⢿⣿⣿⡎⣿⡄⠀⠀⠀⡤⠐⠊⠀⠀⡠⠂⠀⠀⠸⠀⠈⠇⢡⠀⠈⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⢹⣿⠛⣿⣿⣇⠀⢸⡿⠙⢷⣃⡿⠄⠀⠀⢰⠀⠀⠀⠜⠀⠀⠀⠀⡇⠀⠀⠘⠀⠂⢠⠋⠈⠳⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⢀⡾⠋⠑⠚⢿⣿⣦⣾⠁⠀⣠⠟⠁⢀⠀⠀⠈⠀⠀⠈⠀⠀⠀⠀⣼⠀⠀⠀⠀⠀⠀⠘⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠉⣠⠞⢁⠔⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠼⡁⡜⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡇⠀⠀⠀⠀⠀⠀⠀⠘⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠫⣕⠾⡣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠇⠀⠀⠀⠀⡰⡀⠀⠀⢁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠞⠁⢀⠊⠀⠑⠔⢔⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⢰⠁⡇⠀⢠⣿⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠂⠀⠀⠀⠀⠀⠀⠀⣴⠋⠀⠰⠃⠀⠀⠀⠈⢢⢻⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠆⢀⠃⣰⡩⠃⢸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⢀⡾⠃⠀⢰⠁⠀⠀⠀⡤⣀⠀⠱⡋⣷⡀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⢀⡠⠊⠀⣸⢾⠕⠁⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢀⡞⠁⠀⠀⠇⠀⠀⠀⠀⠘⢦⣧⡄⠱⡘⢿⣆⠀⠀⠀⡆⠉⠐⠂⠐⠊⠁⠀⢀⡾⡻⠋⡤⢉⠇⠀⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⡸⠇⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀⠙⠿⣦⠱⡄⠀⠑⢄⠀⠈⢄⠀⠀⠀⢀⣰⠖⢉⠎⣠⣾⠿⠋⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢀⡿⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⣹⡄⠀⠀⠁⠂⠤⠑⠤⠔⠋⠁⡶⢁⠼⠋⠁⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢸⣧⡄⠀⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⡆⠀⠀⠀⠀⠀⠀⠀⣠⣪⠔⠁⠀⠀⠀⠀⠀⠀⠀⠀⢱⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢸⣿⣿⡄⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢫⠢⡀⠀⠀⢀⣠⣴⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠤⠤⠄⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠸⣿⣿⣧⡀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢷⠀⣩⣭⣿⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢿⣿⣿⣧⠀⢇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣎⢿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀
-⠶⢶⣶⡶⠶⢿⣿⣿⣿⣷⢸⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡷⠶⠶⠶⠶⠶⠶⠶⠶.        
             </div>
             <div class="instruction-text">
                 <span>✨ Option 4:</span> Join our Dark Side Telegram Channel ✨
             </div>
-            <!-- href ထဲတွင် မိမိ၏ Telegram Link ကို ထည့်ပါ -->
             <a href="https://t.me/luckyzatkar" class="next-btn telegram-btn" target="_blank">Join Telegram ➔</a>
         </div>
     </div>
 
-    <!-- International Footer -->
+    <!-- 4. Footer -->
     <footer class="site-footer">
         <div class="footer-nav">
             <a href="#">Affiliate</a>
@@ -777,7 +619,7 @@ body {
         </div>
     </footer>
 
-    <!-- Cookie Consent Bar (Sticky Bottom) -->
+    <!-- 5. Cookie Consent Bar -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-text">
             We use cookies and similar technologies that are necessary to run our Website (essential cookies). We also use Analytics, Functionality, and Targeting cookies to analyse our Website's traffic, optimize your experience, personalize content, and serve relevant ads. By clicking "Accept All", you agree to our cookie policy.
@@ -788,66 +630,43 @@ body {
         </div>
     </div>
 
+    <!-- 6. Unified JavaScript Logic -->
     <script>
+        // ၁။ Preloader ကို ၁ စက္ကန့်အကြာတွင် ဖျောက်ပေးမည်
+        setTimeout(function() {
+            var preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                }, 500);
+            }
+        }, 1000); // 1000ms = 1 sec
+
+        // ၂။ Age Verification Logic
+        function verifyAge(isAdult) {
+            var gateCard = document.getElementById('gateCard');
+            var ageGate = document.getElementById('ageGate');
+
+            if (isAdult) {
+                ageGate.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Scroll ပြန်ဖွင့်မည်
+            } else {
+                gateCard.innerHTML = `
+                    <h2 class="kiddo-title">Welcome Come Kiddo! 🎈✨</h2>
+                    <p style="color: #05d9e8;">ကလေးလေးလည်း ကြည့်လို့ရပါတယ်... ဝင်ကြည့်လိုက်တော့နော်!</p>
+                `;
+                setTimeout(function() {
+                    ageGate.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Scroll ပြန်ဖွင့်မည်
+                }, 1800);
+            }
+        }
+
+        // ၃။ Cookie Banner Logic
         function acceptCookies() {
             document.getElementById('cookieBanner').style.display = 'none';
         }
     </script>
-    <script>
-    function verifyAge(isAdult) {
-        const gateCard = document.getElementById('gateCard');
-        const ageGate = document.getElementById('ageGate');
-
-        if (isAdult) {
-            ageGate.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Scroll ပြန်ဖွင့်ပေးခြင်း
-        } else {
-            gateCard.innerHTML = `
-                <h2 class="kiddo-title">Welcome Come Kiddo! 🎈✨</h2>
-                <p style="color: #05d9e8;">ကလေးလေးလည်း ကြည့်လို့ရပါတယ်... ဝင်ကြည့်လိုက်တော့နော်!</p>
-            `;
-
-            setTimeout(() => {
-                ageGate.classList.add('hidden');
-                document.body.style.overflow = 'auto'; // Scroll ပြန်ဖွင့်ပေးခြင်း
-            }, 1800);
-        }
-    }
-</script>
-   <script>
-    // စာမျက်နှာပွင့်ပြီး ၁ စက္ကန့်ပြည့်ပါက Preloader ကို တိုက်ရိုက် ပိတ်မည်
-    setTimeout(function() {
-        var preloader = document.getElementById('preloader');
-        if (preloader) {
-            preloader.style.opacity = '0';
-            preloader.style.transition = 'opacity 0.5s ease';
-            
-            // Opacity မှိန်သွားပြီးနောက် လုံးဝ ဖျောက်ထုတ်မည်
-            setTimeout(function() {
-                preloader.style.display = 'none';
-            }, 500);
-        }
-    }, 1000); // ၁ စက္ကန့် (1000ms)
-
-    // Age Verification Logic
-    function verifyAge(isAdult) {
-        var gateCard = document.getElementById('gateCard');
-        var ageGate = document.getElementById('ageGate');
-
-        if (isAdult) {
-            ageGate.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        } else {
-            gateCard.innerHTML = `
-                <h2 class="kiddo-title">Welcome Come Kiddo! 🎈✨</h2>
-                <p style="color: #05d9e8;">ကလေးလေးလည်း ကြည့်လို့ရပါတယ်... ဝင်ကြည့်လိုက်တော့နော်!</p>
-            `;
-            setTimeout(function() {
-                ageGate.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }, 1800);
-        }
-    }
-</script>
 </body>
 </html>
