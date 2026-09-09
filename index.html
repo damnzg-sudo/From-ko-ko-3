@@ -1,4 +1,3 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,39 +10,42 @@ HTML
 
     <style>
         body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* center အစား flex-start သုံးပေးရပါမည် */
-    background-color: #080808;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-y: auto; /* Scroll ပြန်ဆွဲလို့ရအောင် ပြင်ထားပါသည် */
-    background-image: radial-gradient(circle at center, #1a050f 0%, #050505 100%);
-}
-        }
-
-        .container {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            padding: 30px 20px;
+            margin: 0;
+            padding: 20px 0;
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 900px;
+            justify-content: center; /* အလျားလိုက် အလယ်ကပ်ရန် */
+            align-items: flex-start;
+            background-color: #080808;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-y: auto;
+            background-image: radial-gradient(circle at center, #1a050f 0%, #050505 100%);
             width: 100%;
         }
 
-        /* Headline Font Style */
+        .container {
+            text-align: center; /* စာသားများ အလယ်ကပ်ရန် */
+            position: relative;
+            z-index: 1;
+            padding: 10px 20px 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Element အားလုံး အလယ်ကပ်ရန် */
+            justify-content: center;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto; /* Margin auto ဖြင့် အလယ်ပိုသေချာစေရန် */
+            box-sizing: border-box;
+        }
+
+        /* Headline Style - Center Grid */
         .main-header {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
             letter-spacing: 6px;
             text-transform: uppercase;
             color: #ffffff;
-            margin-bottom: 25px;
+            margin: 0 auto 25px auto;
             font-weight: 900;
             text-shadow: 
                 0 0 5px #fff,
@@ -52,6 +54,8 @@ HTML
                 0 0 40px #ff0055;
             border-bottom: 2px solid #ff0055;
             padding-bottom: 10px;
+            text-align: center;
+            display: inline-block;
         }
 
         .hero-img {
@@ -66,7 +70,7 @@ HTML
             object-fit: cover;
         }
 
-        /* ပြင်ဆင်ထားသော "Scroll for More" Style */
+        /* Scroll for More Style - Center Alignment */
         .text {
             font-family: 'Poppins', sans-serif;
             font-size: 2.2rem;
@@ -78,7 +82,9 @@ HTML
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 15px rgba(255, 42, 109, 0.8));
             animation: pulseGlow 2s ease-in-out infinite alternate;
-            margin-bottom: 25px;
+            margin: 0 auto 25px auto;
+            text-align: center;
+            width: 100%;
         }
 
         .section-card {
@@ -89,6 +95,10 @@ HTML
             padding: 20px;
             margin-bottom: 35px;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Card အတွင်းရှိ Item များကို အလယ်ပို့ပေးရန် */
+            justify-content: center;
         }
 
         .sub-text {
@@ -101,6 +111,7 @@ HTML
             text-align: center;
             width: 100%;
             overflow-x: auto;
+            margin: 0 auto;
         }
 
         .instruction-text {
@@ -110,6 +121,7 @@ HTML
             margin-bottom: 15px;
             letter-spacing: 1px;
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            text-align: center;
         }
 
         .instruction-text span {
@@ -117,7 +129,7 @@ HTML
             font-weight: bold;
         }
 
-        /* Button Style */
+        /* Button Style - Center Placement */
         .next-btn {
             background: linear-gradient(135deg, #ff0055 0%, #ff5e97 100%);
             color: #ffffff;
@@ -126,6 +138,7 @@ HTML
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             font-weight: 700;
             font-size: 1rem;
@@ -135,6 +148,7 @@ HTML
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             cursor: pointer;
+            margin: 0 auto; /* Button ကို အလယ်ပို့ပေးရန် */
         }
 
         .next-btn:hover {
@@ -144,7 +158,6 @@ HTML
             color: #ffffff;
         }
 
-        /* Custom Scroll Effect */
         @keyframes pulseGlow {
             0% {
                 transform: translateY(0) scale(1);
@@ -164,7 +177,6 @@ HTML
 
         <img src="https://cdni.pornpics.com/460/7/301/30087568/30087568_042_6c4c.jpg" class="hero-img" alt="Header Image">
 
-        <!-- ပြင်ထားသော Scroll for More -->
         <div class="text">Scroll for More ⬇</div>
 
         <!-- Section 1 -->
@@ -218,6 +230,7 @@ HTML
 ⣿⣿⣏⣁⢈⢀⣛⠵⠛⠻⣿⣿⣿⣿⣿⣿⣿⣎⠙⣛⠿⠿⠿⠋⠫⠄⠑⠂⠀⠀⠀⢢⣤⣽⡄⡀⠀⠀⠈⠁⠀⠛⠉⠩⢤⠤⠄⣤⣤⡄⢐⣒⠄⣐⡊⢠⣥⣈⣀⣉⠉⢭⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⡇⠨⡂⠿⣿⣿⣿⣤⣽⣿⣿⣿⣃⠭⢅⠄⠑⣒⠀⠀⠀⠠⣾⣿⠄⣈⣉⣉⡁⣊⠕⡦⠀⠀⠀⠀⣀⣲⡄⠒⣴⣭⢟⠶⣊⠡⠾⣫⣾⣿⣿⣿⣿⣉⡛⢷⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣶⣤⣴⣾⣿⣿⣟⣿⣷⣒⠲⠦⣛⣛⢍⢍⡦⠠⠌⢀⠀⠈⠐⠛⠻⠿⠿⠛⠈⣁⠠⢄⣲⡒⢻⣅⡉⣫⠊⠭⢕⣊⡩⢴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣷⣬⣭⣥⣤⣭⣿⣿⣿⣿⣥⣴⣿⣶⣷⣦⣾⣷⣾⣿⣿⣾⣿⣿⣿⣶⣽⣿⣿⣿⣮⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
             </div>
             <div class="instruction-text">
                 <span>✨ Option 1:</span> Click below to open Adult Parody Videos ✨
@@ -229,7 +242,7 @@ HTML
         <div class="section-card">
             <div class="sub-text">
 ⠀⠀⠀⠀
-⠀⠀⣿⡿⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⠀⣿⡿⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⠃⠻⠓⣝⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿
 ⣿⡅⠅⣾⣿⡻⣷⣮⡻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣻⣷⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢋⣴⣾⢘⡻⣿⣿
 ⣿⣷⣦⡙⢇⡳⡘⣿⣿⣶⣝⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⣾⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⡋⠞⣻⠁⢈⡔⠸⣿
@@ -277,7 +290,6 @@ HTML
             <div class="instruction-text">
                 <span>✨ Option 2:</span> Click below to open Porn Pics ✨
             </div>
-            <!-- class="next-btn" ထည့်သွင်းထားပါသည် -->
             <a href="https://www.pornpics.com/asian/" class="next-btn">Next Page 2 ➔</a>
         </div>
 
@@ -330,12 +342,11 @@ HTML
 ⣷⡌⢾⣽⣳⢿⣹⢯⣳⡖⣦⣄⡀⠁⠠⠐⢀⠂⠡⠌⢒⠨⡐⢂⠰⢈⠒⢤⠁⠂⡅⠐⠈⠀⠀⠀⡳⣜⣳⣞⣷⣻⢧⡻⣜⢣⠞⡰⠑⢌⣰⢞⡝⢦⡙⢄⠃⡈⠠⢈⠄
 ⣿⣿⡘⢷⣯⢿⣽⣻⣷⣿⢶⣭⣿⢿⠶⣶⣄⠀⠁⠌⣀⠃⢌⡐⢂⠡⢊⢆⣏⠰⡀⠀⠈⠄⠀⢘⡳⡽⣎⣟⢶⡹⣖⠳⡌⢇⣊⠵⡺⢏⡳⢊⡜⠡⠒⡈⠄⠠⢁⠢⣪
 ⣿⣿⣿⣎⡻⣟⣾⣳⢯⡾⣿⢿⣿⣩⣾⠛⡄⢂⠀⠐⠀⠌⠂⡔⢡⢊⡵⢪⢇⠣⠐⠀⠈⠄⡐⢨⡟⣵⣻⠾⣭⢳⡍⡏⣴⣿⣶⣤⠁⢍⠒⡡⢄⠡⢂⠡⢈⡆⣡⣾⣿
-⣿⣿⣿⣿⣿⣎⡳⢯⣟⡷⣿⣿⣧⠙⠧⠛⠤⠃⣀⣀⣈⣀⣃⣌⣢⣣⣘⣁⣊⣑⣈⣀⣀⣀⣁⣓⣘⣃⣋⣙⣘⣃⣚⣁⡘⠿⠿⠛⠀⠀⠊⡑⢂⠔⡀⠢⢅⣾⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣎⡳⢯⣟⡷⣿⣿⣧⠙⠧⠛⠤⠃⣀⣀⣈⣀⣃⣌⣢⣣⣘⣁⣊⣑⣈⣀⣀⣀⣁⣓⣘⣃⣋⣙⣘⣃⣚⣁⡘⠿⠿⠛⠀⠀⠊⡑⢂⠔⡀⠢⢅⣾⣿⣿⣿⠀⠀⠀⠀
             </div>
             <div class="instruction-text">
                 <span>✨ Option 3:</span> Click below to open PlayBoy Magazines ✨
             </div>
-            <!-- class="next-btn" ထည့်သွင်းထားပါသည် -->
             <a href="https://comicsvalley.com/comic-author/playboy/" class="next-btn">Next Page 3 ➔</a>
         </div>
 
