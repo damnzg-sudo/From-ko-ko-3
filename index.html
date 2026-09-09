@@ -814,34 +814,40 @@ body {
         }
     }
 </script>
-    <script>
-        // စာမျက်နှာ ပွင့်ပွင့်ချင်း ၁ စက္ကန့်ပြည့်တာနဲ့ Preloader ကို မဖြစ်မနေ ပိတ်ပေးမည့် Script
-        setTimeout(function() {
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                preloader.classList.add('fade-out');
-            }
-        }, 1000); // 1000 = ၁ စက္ကန့်
-
-        // Age Verification Logic
-        function verifyAge(isAdult) {
-            const gateCard = document.getElementById('gateCard');
-            const ageGate = document.getElementById('ageGate');
-
-            if (isAdult) {
-                ageGate.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            } else {
-                gateCard.innerHTML = `
-                    <h2 class="kiddo-title">Welcome Come Kiddo! 🎈✨</h2>
-                    <p style="color: #05d9e8;">ကလေးလေးလည်း ကြည့်လို့ရပါတယ်... ဝင်ကြည့်လိုက်တော့နော်!</p>
-                `;
-                setTimeout(() => {
-                    ageGate.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                }, 1800);
-            }
+   <script>
+    // စာမျက်နှာပွင့်ပြီး ၁ စက္ကန့်ပြည့်ပါက Preloader ကို တိုက်ရိုက် ပိတ်မည်
+    setTimeout(function() {
+        var preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.opacity = '0';
+            preloader.style.transition = 'opacity 0.5s ease';
+            
+            // Opacity မှိန်သွားပြီးနောက် လုံးဝ ဖျောက်ထုတ်မည်
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 500);
         }
-    </script>
+    }, 1000); // ၁ စက္ကန့် (1000ms)
+
+    // Age Verification Logic
+    function verifyAge(isAdult) {
+        var gateCard = document.getElementById('gateCard');
+        var ageGate = document.getElementById('ageGate');
+
+        if (isAdult) {
+            ageGate.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        } else {
+            gateCard.innerHTML = `
+                <h2 class="kiddo-title">Welcome Come Kiddo! 🎈✨</h2>
+                <p style="color: #05d9e8;">ကလေးလေးလည်း ကြည့်လို့ရပါတယ်... ဝင်ကြည့်လိုက်တော့နော်!</p>
+            `;
+            setTimeout(function() {
+                ageGate.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 1800);
+        }
+    }
+</script>
 </body>
 </html>
